@@ -9,8 +9,9 @@ export const Intro: React.FC = () => {
             <InformalLogo />
           </div>
           <div className="col-span-6">
-            <p className="italic font-bold text-xl pl-8">
-              Infrastructure for decentralized intelligence.
+            <p className="italic text-xl pl-8">
+              Enterprise-grade staking infrastructure with a focus on security
+              and support for both networks and delegators since 2018.
             </p>
           </div>
         </div>
