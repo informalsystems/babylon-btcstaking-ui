@@ -5,8 +5,6 @@ import { Tooltip } from "react-tooltip";
 
 import blue from "@/app/assets/blue-check.svg";
 import { getNetworkConfig } from "@/config/network.config";
-import { satoshiToBtc } from "@/utils/btcConversions";
-import { maxDecimals } from "@/utils/maxDecimals";
 
 import { Hash } from "../Hash/Hash";
 
@@ -21,14 +19,8 @@ interface FinalityProviderProps {
 export const FinalityProvider: React.FC<FinalityProviderProps> = ({
   pkHex,
   delegations,
-  stakeSat,
   moniker,
-  totalActiveTVLSat,
 }) => {
-  const percentage = totalActiveTVLSat
-    ? `${Math.round((stakeSat / totalActiveTVLSat) * 100)}%`
-    : "-";
-
   const generateFpNoInfoTooltip = (defaultValue: string, tooltip: string) => {
     return (
       <div className="flex items-center gap-2">
@@ -70,30 +62,6 @@ export const FinalityProvider: React.FC<FinalityProviderProps> = ({
       </div>
       <div>
         <p>{delegations}</p>
-        <div className="flex gap-1 lg:hidden">
-          {stakeSat ? (
-            <>
-              <p>
-                {maxDecimals(satoshiToBtc(stakeSat), 8)} {coinName}
-              </p>
-              <p className="dark:text-neutral-content">{percentage}</p>
-            </>
-          ) : (
-            0
-          )}
-        </div>
-      </div>
-      <div className="hidden gap-1 lg:flex">
-        {stakeSat ? (
-          <>
-            <p>
-              {maxDecimals(satoshiToBtc(stakeSat), 8)} {coinName}
-            </p>
-            <p className="dark:text-neutral-content">{percentage}</p>
-          </>
-        ) : (
-          0
-        )}
       </div>
       <Tooltip id="tooltip-missing" />
     </div>

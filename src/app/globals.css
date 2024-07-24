@@ -5,8 +5,13 @@
 @import url("styles/terms.css");
 
 :root {
-  --primary: #ff7c2a;
+  --primary: #113faa;
   --secondary: "#0DB7BF";
+}
+
+.bg {
+  background-color: #0b2d7c;
+  outline: none;
 }
 
 /* disable number input arrows */
@@ -68,7 +73,7 @@ input[type="number"] {
 /* tabs selection */
 .tab.tab-active:not(.tab-disabled):not([disabled]),
 .tab:is(input:checked) {
-  border-color: #ff7c2a;
+  border-color: #113faa;
 }
 
 .divider:after,
