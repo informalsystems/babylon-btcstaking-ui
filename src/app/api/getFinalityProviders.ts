@@ -45,12 +45,23 @@ export const getFinalityProviders = async (
     // "pagination_limit": limit,
   };
 
+  function getFP(pageKey: string) {}
+
   let response = await apiWrapper(
     "GET",
     "/v1/finality-providers",
     "Error getting finality providers",
     params,
   );
+
+  let checkKey = JSON.stringify(response);
+  if (
+    checkKey.includes(
+      "07896fe9b59e0089c9685db8e9cab5e45824f8e70f2f8770ca96184f413f97fa",
+    )
+  ) {
+  } else {
+  }
 
   const finalityProvidersAPIResponse: FinalityProvidersAPIResponse =
     response.data;

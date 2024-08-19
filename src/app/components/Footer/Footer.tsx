@@ -78,6 +78,9 @@ export const Footer: React.FC<FooterProps> = () => {
           Terms of Use
         </button>
       </div>
+      <div>
+        <h2 className="font-bold text-lg">Follow Babylon</h2>
+      </div>
       <div className="flex flex-wrap justify-center gap-8 p-4 pt-2 md:flex-row md:p-6 md:pt-2">
         {iconLinks.map(({ name, url, Icon }) => (
           <div

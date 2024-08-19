@@ -173,6 +173,9 @@ export const Stats: React.FC = () => {
 
   return (
     <div className="card flex flex-col gap-4 bg-base-300 p-1 shadow-sm lg:flex-row lg:justify-between">
+      <div className="card flex justify-between bg-base-400 p-4">
+        <p className="font-lg font-bold text-center">Network Stats</p>
+      </div>
       {sections.map((section, index) => (
         <div
           key={index}
