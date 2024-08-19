@@ -39,8 +39,8 @@ export const FinalityProviders: React.FC<FinalityProvidersProps> = ({
         className="no-scrollbar max-h-[21rem] overflow-y-auto"
       >
         {finalityProviders?.map((fp) => (
-          <>
-            {fp.description.moniker === "Informal Systems" && (
+          <div key={fp.btcPk}>
+            {fp.btcPk === `${process.env.NEXT_PUBLIC_FP_BTC_PK}` && (
               <FinalityProvider
                 key={fp.btcPk}
                 moniker={fp.description?.moniker}
@@ -53,7 +53,7 @@ export const FinalityProviders: React.FC<FinalityProvidersProps> = ({
                 }}
               />
             )}
-          </>
+          </div>
         ))}
       </div>
     </>

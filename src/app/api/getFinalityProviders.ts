@@ -45,8 +45,6 @@ export const getFinalityProviders = async (
     // "pagination_limit": limit,
   };
 
-  function getFP(pageKey: string) {}
-
   let response = await apiWrapper(
     "GET",
     "/v1/finality-providers",
@@ -54,70 +52,11 @@ export const getFinalityProviders = async (
     params,
   );
 
-  let checkKey = JSON.stringify(response);
-  if (
-    checkKey.includes(
-      "07896fe9b59e0089c9685db8e9cab5e45824f8e70f2f8770ca96184f413f97fa",
-    )
-  ) {
-  } else {
-  }
-
   const finalityProvidersAPIResponse: FinalityProvidersAPIResponse =
     response.data;
 
-  const response1 = await apiWrapper(
-    "GET",
-    "/v1/finality-providers",
-    "Error getting finality providers",
-    { pagination_key: response.data.pagination.next_key },
-  );
-
-  const finalityProvidersAPIResponse1: FinalityProvidersAPIResponse =
-    response1.data;
-
-  const response2 = await apiWrapper(
-    "GET",
-    "/v1/finality-providers",
-    "Error getting finality providers",
-    { pagination_key: response1.data.pagination.next_key },
-  );
-
-  const finalityProvidersAPIResponse2: FinalityProvidersAPIResponse =
-    response2.data;
-
-  const response3 = await apiWrapper(
-    "GET",
-    "/v1/finality-providers",
-    "Error getting finality providers",
-    { pagination_key: response2.data.pagination.next_key },
-  );
-
-  const finalityProvidersAPIResponse3: FinalityProvidersAPIResponse =
-    response3.data;
-
-  const response4 = await apiWrapper(
-    "GET",
-    "/v1/finality-providers",
-    "Error getting finality providers",
-    { pagination_key: response3.data.pagination.next_key },
-  );
-
-  const finalityProvidersAPIResponse4: FinalityProvidersAPIResponse =
-    response4.data;
-
-  const merge = [
-    ...finalityProvidersAPIResponse.data,
-    ...finalityProvidersAPIResponse1.data,
-    ...finalityProvidersAPIResponse2.data,
-    ...finalityProvidersAPIResponse3.data,
-    ...finalityProvidersAPIResponse4.data,
-  ];
-
-  console.log("--------------------");
-  console.log(merge);
-
-  const finalityProvidersAPI: FinalityProviderAPI[] = merge;
+  const finalityProvidersAPI: FinalityProviderAPI[] =
+    finalityProvidersAPIResponse.data;
 
   const finalityProviders = finalityProvidersAPI.map(
     (fp: FinalityProviderAPI): FinalityProvider => ({

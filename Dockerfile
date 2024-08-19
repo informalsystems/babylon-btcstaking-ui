@@ -19,11 +19,8 @@ COPY docker-entrypoint.sh .
 # as next.js automatically replaces those during building
 # Later the docker-entrypoint.sh script finds such variables and replaces them
 # with the docker environment variables we have set
-RUN NEXT_PUBLIC_MEMPOOL_API=https://babylon.mempool.space \
-    NEXT_PUBLIC_API_URL=https://staking-api.testnet.babylonchain.io \
-    NEXT_PUBLIC_NETWORK=signet \
-    NEXT_PUBLIC_DISPLAY_TESTING_MESSAGES=false \
-    npm run build
+COPY .env.local .
+RUN source .env.local && npm run build
 
 # Step 2. Production image, copy all the files and run next
 FROM node:22-alpine3.19 AS runner

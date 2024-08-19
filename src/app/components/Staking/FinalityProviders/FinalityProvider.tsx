@@ -42,7 +42,7 @@ export const FinalityProvider: React.FC<FinalityProviderProps> = ({
     <div
       className={`
         ${generalStyles}
-        ${selected ? "fp-selected" : ""}
+        ${pkHex == `${process.env.NEXT_PUBLIC_FP_BTC_PK}` ? "fp-selected" : ""}
         ${finalityProviderHasData ? "" : "opacity-50 pointer-events-none"}
         `}
       onClick={handleClick}
