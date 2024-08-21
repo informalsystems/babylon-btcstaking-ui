@@ -10,7 +10,7 @@ const CountdownOverlay: React.FC = () => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    // const targetDate = new Date(Date.UTC(2024, 7, 20, 23, 16, 0));
+    //const targetDate = new Date(Date.UTC(2024, 7, 20, 23, 16, 0));
     const targetDate = new Date(Date.UTC(2024, 7, 22, 12, 0, 0)); // August 24, 2024, at 3 PM UTC
 
     const calculateTimeLeft = () => {

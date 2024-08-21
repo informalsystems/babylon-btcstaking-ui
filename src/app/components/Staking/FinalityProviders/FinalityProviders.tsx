@@ -41,12 +41,6 @@ export const FinalityProviders: React.FC<FinalityProvidersProps> = ({
 
   return (
     <>
-      <div className="hidden gap-2 px-4 lg:grid lg:grid-cols-stakingFinalityProvidersDesktop">
-        <p>Finality Provider</p>
-        <p>BTC Pubkey</p>
-        <p>Total Delegation</p>
-        <p>Commission</p>
-      </div>
       <div
         id="finality-providers"
         className="no-scrollbar max-h-[21rem] overflow-y-auto"
