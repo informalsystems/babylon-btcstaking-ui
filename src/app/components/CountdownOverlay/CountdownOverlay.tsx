@@ -11,7 +11,7 @@ const CountdownOverlay: React.FC = () => {
 
   useEffect(() => {
     //const targetDate = new Date(Date.UTC(2024, 7, 20, 23, 16, 0));
-    const targetDate = new Date(Date.UTC(2024, 7, 22, 12, 0, 0)); // August 24, 2024, at 3 PM UTC
+    const targetDate = new Date(Date.UTC(2024, 7, 22, 11, 0, 0)); // August 24, 2024, at 3 PM UTC
 
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -63,7 +63,7 @@ const CountdownOverlay: React.FC = () => {
             </h1>
             <div style={styles.timer}>{timeLeft}</div>
             <p className="text-center pb-4 text-lg font-bold">
-              {857910 - height} Bitcoin Blocks to GO!
+              {857900 - height} Bitcoin Blocks to GO!
               <br></br>
               <span className="text-xs italic">{height} of 857910</span>
             </p>
