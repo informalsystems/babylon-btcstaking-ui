@@ -5,8 +5,8 @@
 @import url("styles/terms.css");
 
 :root {
-  --primary: #ff7c2a;
-  --secondary: "#0DB7BF";
+  --primary: #0b2d7c;
+  --secondary: #0db7bf;
 }
 
 /* disable number input arrows */

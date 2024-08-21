@@ -17,7 +17,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: "#FF7C2A",
+        primary: "#0b2d7c",
         secondary: "#0DB7BF",
         "base-400": "hsl(var(--base-400) / <alpha-value>)",
       },
@@ -36,7 +36,7 @@ const config: Config = {
       {
         light: {
           ...require("daisyui/src/theming/themes")["light"],
-          primary: "#FF7C2A",
+          primary: "#0b2d7c",
           secondary: "#0DB7BF",
           "base-100": "#F6F6F6",
           "base-200": "rgba(225, 225, 225, 0.3)",
@@ -51,7 +51,7 @@ const config: Config = {
       {
         dark: {
           ...require("daisyui/src/theming/themes")["dark"],
-          primary: "#FF7C2A",
+          primary: "#0b2d7c",
           secondary: "#0DB7BF",
           "base-100": "#000",
           "base-200": "#303030",

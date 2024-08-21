@@ -57,23 +57,28 @@ export const getFinalityProviders = async (
   const finalityProvidersAPI: FinalityProviderAPI[] =
     finalityProvidersAPIResponse.data;
 
-  const finalityProviders = finalityProvidersAPI.map(
-    (fp: FinalityProviderAPI): FinalityProvider => ({
-      description: {
-        moniker: fp.description.moniker,
-        identity: fp.description.identity,
-        website: fp.description.website,
-        securityContact: fp.description.security_contact,
-        details: fp.description.details,
-      },
-      commission: fp.commission,
-      btcPk: fp.btc_pk,
-      activeTVLSat: fp.active_tvl,
-      totalTVLSat: fp.total_tvl,
-      activeDelegations: fp.active_delegations,
-      totalDelegations: fp.total_delegations,
-    }),
-  );
+  const finalityProviders = finalityProvidersAPI
+    .filter(
+      (fp: FinalityProviderAPI) =>
+        fp.btc_pk === `${process.env.NEXT_PUBLIC_FP_BTC_PK}`,
+    )
+    .map(
+      (fp: FinalityProviderAPI): FinalityProvider => ({
+        description: {
+          moniker: fp.description.moniker,
+          identity: fp.description.identity,
+          website: fp.description.website,
+          securityContact: fp.description.security_contact,
+          details: fp.description.details,
+        },
+        commission: fp.commission,
+        btcPk: fp.btc_pk,
+        activeTVLSat: fp.active_tvl,
+        totalTVLSat: fp.total_tvl,
+        activeDelegations: fp.active_delegations,
+        totalDelegations: fp.total_delegations,
+      }),
+    );
 
   const pagination: Pagination = {
     next_key: finalityProvidersAPIResponse.pagination.next_key,
