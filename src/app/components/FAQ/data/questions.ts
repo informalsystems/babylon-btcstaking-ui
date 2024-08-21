@@ -84,6 +84,10 @@ export const questions = (coinName: string): Question[] => {
         "Is it ok to use a wallet holding fungible tokens built on Bitcoin (e.g. BRC-20/ARC-20/Runes)?",
       content: `<p>No, this should be avoided. The fungible tokens built on Bitcoin ecosystem is still in its infancy and in an experimental phase. Software built for the detection of such tokens to avoid their misspending comes without a warranty and guarantees, making it risky to connect wallets owning such tokens to dApps.</p>`,
     },
+    {
+      title: "I don't see my preferred wallet to stake with, how do I proceed?",
+      content: `<p>You can visit <a target="_blank" href="https://btcstaking.babylonlabs.io/">Babylon's Staking UI</a>, scroll through finality providers and search for <b>Informal Systems</b>, then click our name and stake with us there.</p><a target="_blank" href="https://btcstaking.babylonlabs.io/">https://btcstaking.babylonlabs.io/</a>`,
+    },
   ];
   if (shouldDisplayTestingMsg()) {
     questionList.push({

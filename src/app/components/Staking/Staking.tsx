@@ -621,7 +621,7 @@ export const Staking: React.FC<StakingProps> = ({
 
   return (
     <div className="card flex flex-col gap-2 bg-base-300 p-4 shadow-sm lg:flex-1">
-      <h3 className="mb-4 font-bold">Staking</h3>
+      <h3 className="mb-4 font-bold">Staking on Babylon</h3>
       <div className="flex flex-col gap-4 lg:flex-row">
         <div className="flex flex-1 flex-col gap-4 lg:basis-3/5 xl:basis-2/3">
           <FinalityProviders

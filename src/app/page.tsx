@@ -27,14 +27,15 @@ import {
 import { getGlobalParams } from "./api/getGlobalParams";
 import { UTXO_KEY } from "./common/constants";
 import { signPsbtTransaction } from "./common/utils/psbt";
+import CountdownOverlay from "./components/CountdownOverlay/CountdownOverlay";
 import { Delegations } from "./components/Delegations/Delegations";
 import { FAQ } from "./components/FAQ/FAQ";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
+import { Intro } from "./components/Intro/intro";
 import { ConnectModal } from "./components/Modals/ConnectModal";
 import { ErrorModal } from "./components/Modals/ErrorModal";
 import { TermsModal } from "./components/Modals/Terms/TermsModal";
-import { NetworkBadge } from "./components/NetworkBadge/NetworkBadge";
 import { Staking } from "./components/Staking/Staking";
 import { Stats } from "./components/Stats/Stats";
 import { Summary } from "./components/Summary/Summary";
@@ -387,7 +388,7 @@ const Home: React.FC<HomeProps> = () => {
     <main
       className={`relative h-full min-h-svh w-full ${network === Network.MAINNET ? "main-app-mainnet" : "main-app-testnet"}`}
     >
-      <NetworkBadge isWalletConnected={!!btcWallet} />
+      {/* <NetworkBadge isWalletConnected={!!btcWallet} /> */}
       <Header
         onConnect={handleConnectModal}
         onDisconnect={handleDisconnectBTC}
@@ -396,6 +397,8 @@ const Home: React.FC<HomeProps> = () => {
       />
       <div className="container mx-auto flex justify-center p-6">
         <div className="container flex flex-col gap-6">
+          <CountdownOverlay />
+          <Intro />
           <Stats />
           {address && (
             <Summary

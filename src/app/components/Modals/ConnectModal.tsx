@@ -28,6 +28,8 @@ export const ConnectModal: React.FC<ConnectModalProps> = ({
 }) => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [noInscription, setNoInscription] = useState(false);
+  const [noHardwareWallet, setNoHardwareWallet] = useState(false);
+
   const [selectedWallet, setSelectedWallet] = useState<string>("");
   const [mounted, setMounted] = useState(false);
 
@@ -169,6 +171,23 @@ export const ConnectModal: React.FC<ConnectModalProps> = ({
             </span>
           </label>
         </div>
+        <div className="form-control">
+          <label className="label cursor-pointer justify-start gap-2 rounded-xl bg-base-100 p-4">
+            <input
+              type="checkbox"
+              className="checkbox-primary checkbox"
+              onChange={(e) => setNoHardwareWallet(e.target.checked)}
+              checked={noHardwareWallet}
+            />
+            <span className="label-text">
+              I acknowledge that Keystone via QR code is the only hardware
+              wallet supporting Bitcoin staking. Using any other hardware
+              wallets through any means (such as connection to
+              software/extensions/mobile wallet) can lead to permanent inability
+              to withdraw the stake.
+            </span>
+          </label>
+        </div>
         <div className="my-4 flex flex-col gap-4">
           <h3 className="text-center font-semibold">Choose wallet</h3>
           <div className="grid max-h-[20rem] grid-cols-1 gap-4 overflow-y-auto">
@@ -235,7 +254,8 @@ export const ConnectModal: React.FC<ConnectModalProps> = ({
             connectDisabled ||
             !termsAccepted ||
             !selectedWallet ||
-            !noInscription
+            !noInscription ||
+            !noHardwareWallet
           }
         >
           <PiWalletBold size={20} />
